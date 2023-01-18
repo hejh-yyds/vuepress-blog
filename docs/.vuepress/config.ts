@@ -43,37 +43,44 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           {
             text: '学习笔记',
             items: [
-              { text: '《JavaScript教程》', link: '/note/javascript/' },
-              { text: '《JavaScript高级程序设计》', link: '/note/js/' },
-              { text: '《ES6 教程》', link: '/note/es6/' },
-              { text: '《Vue》', link: '/note/vue/' },
-              { text: '《React》', link: '/note/react/' },
+              { text: 'HTML笔记', link: '/note/html/' },
+              { text: 'CSS笔记', link: '/note/css/' },
+              { text: 'JavaScript基础笔记', link: '/note/js-low/' },
+              { text: 'JavaScript高阶笔记', link: '/note/js-high/' },
+              { text: 'JavaScript DOM和BOM笔记', link: '/note/js-dom-bom/' },
               {
-                text: '《TypeScript 从零实现 axios》',
-                link: '/note/typescript-axios/',
+                text: 'jQuery笔记',
+                link: '/note/jquery/',
               },
               {
-                text: '《Git》',
-                link: '/note/git/',
+                text: 'Ajax笔记',
+                link: '/note/ajax/',
               },
               {
-                text: 'TypeScript',
-                link: '/pages/51afd6/',
+                text: 'NodeJs笔记',
+                link: '/note/nodejs/',
               },
               {
-                text: 'JS设计模式总结',
-                link: '/pages/4643cd/',
+                text: 'Vue笔记',
+                link: '/note/vue/',
               },
+
+              {
+                text: 'react笔记',
+                link: '/note/react/',
+              }
             ],
           },
         ],
       },
       {
-        text: '页面',
-        link: '/ui/',
+        text: '后端',
+        link: '/back/',
         items: [
-          { text: 'HTML', link: '/pages/8309a5b876fc95e3/' },
-          { text: 'CSS', link: '/pages/0a83b083bdf257cb/' },
+          { text: 'JAVA', link: '/note/java/' },
+          { text: 'JavaWeb', link: '/note/javaweb/' },
+          { text: 'MySql', link: '/note/mysql' },
+          { text: 'ssm', link: '/note/ssm/' }
         ],
       },
       {
@@ -166,8 +173,8 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 
     // 文章默认的作者信息，(可在md文件中单独配置此信息) string | {name: string, link?: string}
     author: {
-      name: 'xugaoyi', // 必需
-      link: 'https://github.com/xugaoyi', // 可选的
+      name: 'lingxin', // 必需
+      link: 'https://github.com/linxin1123', // 可选的
     },
 
     // 博主信息 (显示在首页侧边栏)
@@ -184,12 +191,12 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         {
           iconClass: 'icon-youjian',
           title: '发邮件',
-          link: 'mailto:894072666@qq.com',
+          link: '3010733382@qq.com',
         },
         {
           iconClass: 'icon-github',
           title: 'GitHub',
-          link: 'https://github.com/xugaoyi',
+          link: 'https://github.com/linxin1123',
         },
         {
           iconClass: 'icon-erji',
@@ -201,7 +208,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 
     // 页脚信息
     footer: {
-      createYear: 2019, // 博客创建年份
+      createYear: 2022, // 博客创建年份
       copyrightInfo:
         'Evan Xu | <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/LICENSE" target="_blank">MIT License</a>', // 博客版权信息、备案信息等，支持a标签或换行标签</br>
     },
@@ -209,8 +216,8 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     // 扩展自动生成frontmatter。（当md文件的frontmatter不存在相应的字段时将自动添加。不会覆盖已有的数据。）
     extendFrontmatter: {
       author: {
-        name: 'xugaoyi',
-        link: 'https://github.com/xugaoyi'
+        name: 'lingxin',
+        link: 'https://github.com/linxin1123'
       }
     },
 

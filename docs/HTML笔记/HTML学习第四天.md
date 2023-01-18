@@ -1,0 +1,698 @@
+---
+title: HTML学习第四天
+date: 2023-01-18 19:40:38
+permalink: /pages/c75fae/
+categories:
+  - HTML笔记
+tags:
+  - 
+author: 
+  name: lingxin
+  link: https://github.com/linxin1123
+---
+# HTML学习第四天
+
+## 1. 复合选择器
+
+#### 1.1 后代选择器（空格）
+
+- 根据HTML标签的嵌套关系，选择**父元素后代中满足条件的元素**
+- **选择器语法：选择器1 选择器2{css}**
+- 结果：在选择器1所找到标签的**后代（儿子、孙子、重孙子）**中，找到满足选择器2的标签，设置样式。
+- 示例
+
+```html
+<style>
+    /* 后代选择器，选择div的后代（儿子，孙子，重孙都是后代）p标签，设置属性 */
+    /* div p{
+        color: blue;
+    } */
+    /* 第二种方式  */
+    .father p  {
+
+        color: blue;
+    }
+    </style>
+```
+
+#### 1.2 子代选择器（>号）
+
+- 根据HTML标签的嵌套关系，选择**父元素子代**中满足条件的元素
+
+- **选择器语法：选择器1>选择器2{css}**
+- 结果：在选择器1所找到标签的**子代（儿子）**中，找到满足选择器2的标签，设置样式
+
+- 示例
+
+```html
+<!-- 子代选择器 -->
+
+    <style>
+    
+    .father>p{
+        color: red;
+    }
+    
+    </style>
+```
+
+
+
+## 2. 并集选择器(,)
+
+-  同时选中多组标签，设置相同的样式
+- **选择器语法：选择器1,选择器2{css}**
+- 结果：找到选择器1和选择器2选中的标签，设置样式
+- **注意点**
+  - 并集选择器中的**每组选择器可以是基础选择器也可以是复合选择器**
+  - 并集选择器中每组选择器通常一行写一个，提高代码的可读性
+- 示例
+
+```html
+<style>
+    /* 并集选择器:选中多个标签统一设置样式 */
+    /* div,p,h2{
+
+        color: aqua;
+    } */
+
+    /* 复合选择器也可以 */
+    h2,
+    .father>p
+    {
+        color: aqua;
+    }
+    
+    </style>
+```
+
+
+
+
+
+## 3. 交集选择器（）
+
+- 选中页面中**同时满足多个选择器的标签**
+- **选择器语法：选择器1选择器2{css}**
+- 结果：找到页面中**既能被选择器1选中，又能被选择器2选中的标签**，设置样式
+- 注意点
+  - **交集选择器中如果有标签选择器，标签选择器必须写在最前面**
+- 示例
+
+```html
+<style>
+   
+   /* 交集选择器 标签选择器必须写在前面*/
+   p.red
+   {
+       color:aqua; 
+   }
+   
+   </style>
+```
+
+
+
+
+
+## 4. emmet语法
+
+- **简写语法，快速生成代码**
+- 语法表格
+
+| 记忆       | 实例            | 效果                                     |
+| ---------- | --------------- | ---------------------------------------- |
+| 标签名     | div             | ``<div></div>``                          |
+| 类选择器   | .red            | ``<div class="red"></div>``              |
+| id选择器   | #one            | ``<div id="one"></div>``                 |
+| 交集选择器 | p.red#one       | ``<p class="red" id="one"></p>``         |
+| 子代选择器 | ul>li           | ``<ul><li></li></ul>``                   |
+| 内部文本   | ul>li{内部文本} | ``<ul><li>内部文本</li></ul>``           |
+| 创建多个   | ul>li*3         | ``<ul><li></li><li></li><li></li></ul>`` |
+
+
+
+## 5. hover伪类选择器
+
+- 作用：选中鼠标悬停在元素上的状态，设置样式
+- **选择器语法：选择器:hover{css}**
+- 注意点：伪类选择器选中的元素的某种状态
+- 示例
+
+```html
+/* 伪类选择器 */
+        a:hover{
+
+            color:yellow;
+            text-decoration: underline;
+        }
+```
+
+- 图示
+
+![动图](hover效果.gif)
+
+## 6. 选择器总结
+
+| 选择器          | 作用                       | 格式                   | 示例              |
+| --------------- | -------------------------- | ---------------------- | ----------------- |
+| 后代选择器      | 找后代                     | 选择器之间通过空格分隔 | .father .son{css} |
+| 子代选择器      | 找儿子                     | 选择器之间通过>号分隔  | .father>.son{css} |
+| 并集选择器      | 找到多类元素               | 选择器之间通过，号分隔 | div,p,span{css}   |
+| 交集选择器      | 找同时满足多个选择器的元素 | 选择器之间紧贴着       | p.red{css}        |
+| hover伪类选择器 | 选中鼠标悬停在元素上的状态 | :hover                 | a:hover{css}      |
+
+
+
+## 7. 背景相关属性（装饰元素的背景样式）
+
+#### 7.1 背景颜色
+
+- **属性名：background-color（bgc）**
+- 属性值：关键字，rgb，rgba，十六进制
+- 注意点
+  - 背景颜色**默认值是透明：rgba（0，0，0，0），transparent**
+  - 设置背景颜色方便查看盒子大小
+- 示例
+
+```html
+<style>
+    div
+    {
+        background-color: blue;
+        width: 400px;
+        height:400px;
+    }
+    
+    </style>
+```
+
+- 效果
+
+![图片](QQ截图20220124114535.png)
+
+
+
+#### 7.2 背景图片
+
+- **属性名：background-image（bgi）**
+- 属性值：url(‘图片的路径’)
+- 注意点：
+
+  - **背景图片默认在水平和垂直方向平铺**
+  - **图片不能撑开盒子**
+
+- 示例
+
+```html
+div
+    {
+        width: 400px;
+        height: 400px;
+        background-image: url(https://tse1-mm.cn.bing.net/th/id/OIP-C.FaG6dzohGs3q45-DwsEyQQHaEK?w=310&h=180&c=7&r=0&o=5&dpr=1.25&pid=1.7)
+    }
+    </style>
+```
+
+- **图示（默认水平和竖直平铺）**
+
+![图片](QQ截图20220124124430.png)
+
+
+
+
+
+#### 7.3 背景平铺
+
+- **属性名：background-repeat（bgr）**
+
+- 属性值：
+
+  | 取值      | 效果                           |
+  | --------- | ------------------------------ |
+  | repeat    | 默认值（水平和垂直方向都平铺） |
+  | no_repeat | 不平铺                         |
+  | repeat-x  | 沿x轴（水平方向）平铺          |
+  | repeat-y  | 沿y轴（垂直方向）平铺          |
+
+  
+
+#### 7.4 背景位置
+
+- **属性名：background-position(bgp)**
+- 属性值：background-position：水平方向位置，垂直方向位置
+- 图解
+
+![图解](QQ截图20220124124703.png)
+
+- 示例
+
+```html
+<style>
+    
+    div
+    {
+        width: 400px;
+        height: 400px;
+        background-color:red;
+        background-image: url(https://img0.baidu.com/it/u=358720233,1295590444&fm=26&fmt=auto);
+        background-repeat: no-repeat;
+        background-position: 100px 100px;
+    }
+    </style>
+```
+
+- 图示
+
+![图示](QQ截图20220124140148.png)
+
+#### 7.5 背景属性连写
+
+- **属性名：background（bg）**
+- 属性值：background：color image repeat position
+- 省略问题：
+  - **可以按照需求省略**
+  - **特殊情况：如果盒子大小与背景图片大小一样，此时可以直接写background：url（）**
+- 注意点
+  - > **虽然图片可以设置大小，但在加载时还是原来的图片，需要进行转换，提前修改图片本身的大小可以提高页面响应时间**
+
+#### 7.6 img标签与背景图片的区别
+
+- **img标签是一个标签，不设置宽高会以原尺寸显示**
+- **背景图片bgi是css样式，起到对标签的装饰效果。不能撑开标签的大小。**
+
+
+
+## 8. 元素显示模式
+
+#### 8.1块级元素
+
+- **属性：display：block**
+- **显示特点：**
+  - 独占一行**（并不是占满浏览器一行，而是父元素一行）**
+  - 宽度默认为父元素宽度，高度由内容撑开
+  - 可以设置宽高
+
+- 代表标签：
+  - **div,p,h系列**,ul,li,dl,dt,dd,form,header,nav,footer
+
+
+
+#### 8.2 行内元素
+
+- **属性：display：inline**
+- **显示特点**
+  - 一行可以显示多个
+  - 宽度和高度默认由内容撑开
+  - 不可以设置宽高
+- 代表标签
+  - **a,span**,b,u,i,s,strong,ins,em,del......
+
+
+
+#### 8.3 行内块元素
+
+- **属性：display：inline-block**
+- **显示特点：**
+  - 一行可以显示多个
+  - 可以设置宽高
+- 代表标签
+  - input，textarea，button，select.....
+  - 特殊情况：img标签有行内块元素特点，但是CHORMe调试工具中显示inline
+
+
+
+#### 8.4 元素显示模式转换
+
+- 目的：改变元素默认的显示特点，让元素符合布局要求
+
+- 语法
+
+  | 属性                 | 效果             | 使用频率 |
+  | -------------------- | ---------------- | -------- |
+  | display:block        | 转换为块级元素   | 较多     |
+  | display:inline-block | 转换为行内块元素 | 较多     |
+  | display:inline       | 转换为行内元素   | 较少     |
+
+
+
+#### 8.5 HTML嵌套规范注意点
+
+- **p标签不要嵌套div，p，h等块级元素**
+- **a标签不能嵌套a标签**
+
+
+
+#### 8.6 居中方法总结
+
+- 图解
+
+![图解](QQ截图20220124142923.png)
+
+## 9.CSS三大特性
+
+1. **继承性**
+2. **层叠性**
+3. **优先级**
+
+#### 9.1 继承性
+
+- 特性：**子元素有默认继承父元素样式的特点**
+- **可以继承的常见属性**
+  1. color
+  2. font-size,font-weight,font-style,font-family
+  3. text-align,text-indent
+  4. line-height
+  5. .....
+- **注意点**：可以使用调试工具判断是否可以继承
+
+##### 9.1.2 继承的应用
+
+- 可以直接**给ul标签设置list-style:none 属性**，从而**去除列表默认的小圆点样式**
+- 直接**给body标签设置统一的font-size**，从而**统一不同浏览器默认文字大小**
+- 示例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+    
+    ul{
+        color: red;
+        /* 去除小圆点 */
+        list-style-type: none;
+    }
+
+    body{
+        /* 应用二：整体设置字体大小 */
+        font-size: 160%;
+    }
+    </style>
+</head>
+<body>
+    <!-- 继承的应用1 -->
+    <ul>
+        <li>我是大识别</li>
+        <li>我是大识别</li>
+        <li>我是大识别</li>
+        <li>我是大识别</li>
+        <li>我是大识别</li>
+        <li>我是大识别</li>
+        <li>我是大识别</li>
+        <li>我是大识别</li>
+    </ul>
+</body>
+</html>
+```
+
+
+
+- 效果图
+
+![效果图](QQ截图20220124144312.png)
+
+##### 9.1.3 继承失效的特殊情况
+
+- **原因：如果元素有浏览器默认样式，此时继承性依然存在，但是优先显示浏览器的默认样式**
+
+1. **a标签的color会继承失效**
+- 其实color属性继承下来了，但是被浏览器的默认属性覆盖了
+2. **h系列标签的font-size会继承失效**
+- 其实font-size属性继承下来了，但是被浏览器的默认属性覆盖了
+3. **div的高度不能继承，但是宽度有类似于继承的效果**
+- 宽度属性不能继承，但是div有独占一行的特性
+
+
+- 示例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+    div.father
+    {
+        color: red;
+        font-size: 10px;
+        background-color:green;
+        width: 400px;
+        height: 400px;
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="father">
+        <!-- 1.a标签的颜色不会被继承 -->
+
+        <a href="#">查看更多</a>
+
+        <!-- 2.font-size不会被继承 -->
+        <h1>生命不惜</h1>
+
+        <!-- 3.div的高度不会被继承 -->
+        <div>
+            shengbhckjsc
+        </div>
+
+    </div>
+</body>
+</html>
+```
+
+
+
+- 效果图
+
+![效果图](QQ截图20220124145343.png)
+
+
+
+#### 9.2 层叠性
+
+- 特性：
+  - 给**同一个标签设置不同的样式，样式会层叠叠加，共同作用在标签上**
+  - 给标签**设置相同的样式，样式会层叠覆盖，最终写在最后的样式会生效**
+- 注意点
+  - **当样式发生冲突时，只有当选择器优先级相同时，才能通过层叠性判断结果**
+- 示例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+
+        .orange
+        {
+            color: orange;
+        }
+
+        p{
+            color: aqua;
+        }
+        p{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 会根据优先级和书写顺序来层叠样式 -->
+    <p class="orange">
+
+        我是大宝贝
+    </p>
+</body>
+</html>
+```
+
+- 效果图
+
+![效果图](QQ截图20220124150026.png)
+
+#### 9.3 优先级
+
+##### 9.3.1优先级的介绍
+
+- **特性：不同选择器有不同的优先级，优先级高的选择器样式会覆盖优先级低的选择器样式**
+- **优先级公式：继承<通配符选择器<标签选择器<类选择器<id选择器<行内样式<!important**
+
+###### 注意点
+
+- !important写在属性值的后面，分号的前面
+
+- !important不能提升继承的优先级，**只要是继承->优先级最低**
+- 实际开发中不建议使用!important
+
+###### 示例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 1.继承，优先级最低 */
+        div
+        {
+            color: red;
+        }
+        /* 2.通配符选择器 */
+        *
+        {
+            color: green;
+        }
+        /* 2.5 标签选择器 */
+        p
+        {
+            color: blueviolet;
+        }
+        /* 3.类选择器 */
+        .son
+        {
+            color: aqua;
+        }
+        /* 4.id选择器 */
+        #red
+        {
+            color: orange;
+        }
+
+        /* 6.!important 优先级最高 */
+        /* p
+        {
+            color: cadetblue !important;
+        } */
+        /* !important不能提升继承的优先级 */
+        .father
+        {
+            color: red !important;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+
+    <div class="father">
+        <!-- 5.行内样式 -->
+
+        <p class="son" id="red" style="color:blue">
+            我是一个p标签
+        </p>
+    </div>
+
+</body>
+</html>
+```
+
+- 效果图
+
+![效果图](QQ截图20220124184826.png)
+
+##### 9.3.2 权重叠加计算
+
+- 场景：复合选择器中，此时需要通过权重叠加计算方法，判断那个选择器优先级最高会生效
+- 权重叠加计算公式：**（每一级之间不存在进位）**
+
+![公式](QQ截图20220124185429.png)
+
+- 比较规则：
+  1. 先比较第一级数字，如果比较出来了，之后统统不看
+  2. 如果第一级数字相同，此时再去比较第二级数字，如果比较出来了，之后的统统不看
+  3. ......
+  4. 如果**最终所有数字都相同，表示优先级相同，则比较层叠性**（谁写在下面，显示谁的效果）
+
+###### 注意点
+
+- **!important如果不是继承，则权重最高，天下第一！**
+
+##### 9.3.3权重叠加计算案例
+
+- 解题步骤：
+  1. **先判断选择器是否能直接选中标签，如果不能选中->继承，优先级最低->直接pass**
+  2. 通过权重叠加公式，判断优先级
+- 案例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+
+        /* 比较原则为从左到右比较，只要有一位比较出，就可出结果 */
+    /* 0 1 0 1 */
+    div #red
+    {
+        color: aqua;
+    }
+
+    /* 0 0 2 0 */
+    .father .son
+    {
+        color: bisque;
+    }
+
+    /* 0 0 1 1 */
+    .father p
+    {
+        color: red;
+    }
+
+    /* 0 0 0 2 */
+    div p
+    {
+        color: blue;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="father">
+        <p class="son" id="red">我是一个p标签</p>
+    </div>
+</body>
+</html>
+```
+
+
+
+- 效果图
+
+![效果图](QQ截图20220124190630.png)
+
+
+
+## 10. chorme调试工具
+
+#### 10.1 查错流程
+
+![图解](QQ截图20220124190800.png)
+
