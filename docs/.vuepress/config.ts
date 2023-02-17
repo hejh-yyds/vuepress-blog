@@ -44,7 +44,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
             text: '学习笔记',
             items: [
               { text: 'HTML笔记', link: '/note/html/' },
-              { text: 'CSS笔记', link: '/note/css/' },
+
               { text: 'JavaScript基础笔记', link: '/note/js-low/' },
               { text: 'JavaScript高阶笔记', link: '/note/js-high/' },
               { text: 'JavaScript DOM和BOM笔记', link: '/note/js-dom-bom/' },
@@ -61,6 +61,10 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
                 link: '/note/nodejs/',
               },
               {
+                text: '正则表达式笔记',
+                link: '/note/reg/',
+              },
+              {
                 text: 'Vue笔记',
                 link: '/note/vue/',
               },
@@ -68,7 +72,28 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
               {
                 text: 'react笔记',
                 link: '/note/react/',
+              },
+
+              {
+                text: '微信小程序笔记',
+                link: '/note/wx/',
+              },
+
+              {
+                text: 'uniapp笔记',
+                link: '/note/uniapp/',
+              },
+
+              {
+                text: 'echarts笔记',
+                link: '/note/echarts/',
+              },
+
+              {
+                text: 'Git笔记',
+                link: '/note/git/',
               }
+
             ],
           },
         ],
@@ -84,27 +109,37 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         ],
       },
       {
-        text: '技术',
-        link: '/technology/',
+        text: '算法',
+        link: '/algor/',
         items: [
-          { text: '技术文档', link: '/pages/9a7ee40fc232253e/' },
-          { text: 'GitHub技巧', link: '/pages/4c778760be26d8b3/' },
-          { text: 'Nodejs', link: '/pages/117708e0af7f0bd9/' },
-          { text: '博客搭建', link: '/pages/41f87d890d0a02af/' },
+          { text: '算法训练营', link: '/note/sf/' },
+          { text: 'js数据结构与算法', link: '/note/js-sf/' },
+          // { text: 'Nodejs', link: '/pages/117708e0af7f0bd9/' },
+          // { text: '博客搭建', link: '/pages/41f87d890d0a02af/' },
         ],
       },
       {
-        text: '更多',
-        link: '/more/',
+        text: '面试',
+        link: '/mianshi/',
         items: [
-          { text: '学习', link: '/pages/f2a556/' },
-          { text: '面试', link: '/pages/aea6571b7a8bae86/' },
-          { text: '心情杂货', link: '/pages/2d615df9a36a98ed/' },
-          { text: '实用技巧', link: '/pages/baaa02/' },
-          { text: '友情链接', link: '/friends/' },
+          { text: '蓝桥杯备战', link: '/note/lqb/' },
+          { text: '前端面试', link: '/note/ms/' },
+          { text: '黑马面试', link: '/note/hmms/' },
+          { text: '校招零距离面试', link: '/note/xzms/' },
+          // { text: '友情链接', link: '/friends/' },
         ],
       },
-      { text: '关于', link: '/about/' },
+      {
+        text: '解决方案',
+
+        link: '/resolve/',
+
+        items: [
+          { text: '前端解决方案', link: '/note/qd-resolve/' },
+          { text: '后端解决方案', link: '/note/hd-resolve/' },
+
+        ],
+      },
       {
         text: '收藏',
         link: '/pages/beb6c0bd8a66cea6/',
@@ -125,7 +160,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
       },
     ],
     sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
-    logo: '/img/logo.png', // 导航栏logo
+    logo: 'https://lingxin-tanhua.oss-cn-shanghai.aliyuncs.com/QQ%E6%88%AA%E5%9B%BE20220503092755.png', // 导航栏logo
     repo: 'linxin1123/vuepress-blog', // 导航栏右侧生成Github链接
     searchMaxSuggestions: 10, // 搜索结果显示最大数
     lastUpdated: '上次更新', // 开启更新时间，并配置前缀文字   string | boolean (取值为git提交时间)
@@ -179,7 +214,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 
     // 博主信息 (显示在首页侧边栏)
     blogger: {
-      avatar: 'https://fastly.jsdelivr.net/gh/xugaoyi/image_store/blog/20200103123203.jpg',
+      avatar: 'https://lingxin-tanhua.oss-cn-shanghai.aliyuncs.com/QQ%E6%88%AA%E5%9B%BE20220503092755.png',
       name: 'lingxin',
       slogan: '凌歆',
     },
