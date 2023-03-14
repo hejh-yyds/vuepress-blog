@@ -1,3 +1,16 @@
+---
+title: Vuex
+date: 2023-03-14 20:08:11
+permalink: /pages/0b785d/
+categories:
+  - 面试
+  - 黑马面试
+tags:
+  - 
+author: 
+  name: lingxin
+  link: https://github.com/linxin1123
+---
 ## Vuex知识点
 
 ### 1. vuex
